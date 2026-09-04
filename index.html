@@ -12,6 +12,7 @@
     --sec: clamp(96px, 14vw, 200px);     /* セクション間 */
     --ink: #111111; --gray: #EBEBEB; --sub: #777777; --line: rgba(0,0,0,.15);
     --edge: calc(max(0px, (100vw - 1440px) / 2) + var(--gx)); /* 全幅帯の中身を1440px枠に揃える余白 */
+    --fr: clamp(10px, 1vw, 14px);           /* トップ写真の細い黒ふち */
   }
   * { box-sizing: border-box; }
   html, body { margin: 0; padding: 0; background: #FFFFFF; }
@@ -44,10 +45,10 @@
   .brand .n2 { font-family: Inter, sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.22em; color: var(--sub); margin-top: 4px; }
 
   /* hero（写真を画面幅いっぱいに。高さは画面に合わせ、見出しまで初期表示に収める） */
-  .hero { position: relative; background: var(--ink); color: #FFF; width: 100vw; margin-left: calc(50% - 50vw); height: clamp(480px, calc(100vh - 96px), 820px); display: flex; align-items: flex-end; padding: 0 var(--edge) clamp(28px, 3.4vw, 48px); overflow: hidden; }
-  .hero .frame { position: absolute; inset: 0; }
+  .hero { position: relative; background: var(--ink); color: #FFF; width: 100vw; margin-left: calc(50% - 50vw); height: clamp(480px, calc(100vh - 96px), 820px); display: flex; align-items: flex-end; padding: var(--fr) var(--edge) calc(var(--fr) + clamp(28px, 3.4vw, 48px)); overflow: hidden; }
+  .hero .frame { position: absolute; inset: var(--fr); }
   .hero .frame img { filter: saturate(.78) brightness(.92); }
-  .hero .shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,.06) 0%, rgba(0,0,0,.10) 45%, rgba(0,0,0,.70) 100%); }
+  .hero .shade { position: absolute; inset: var(--fr); background: linear-gradient(180deg, rgba(0,0,0,.06) 0%, rgba(0,0,0,.10) 45%, rgba(0,0,0,.70) 100%); }
   .hero .word { position: relative; z-index: 2; font-family: Inter, sans-serif; font-weight: 800; font-size: clamp(34px, 7.6vw, 110px); letter-spacing: -0.035em; line-height: 0.95; white-space: nowrap; margin-left: -0.03em; text-shadow: 0 2px 24px rgba(0,0,0,.25); }
   .hero .word span { font-weight: 500; letter-spacing: -0.02em; }
   .tab { position: absolute; right: 0; top: 200px; z-index: 3; background: #FFF; color: var(--ink); width: 56px; height: 190px; display: flex; align-items: center; justify-content: center; writing-mode: vertical-rl; font-size: 12px; font-weight: 700; letter-spacing: 0.3em; }
@@ -166,7 +167,7 @@
     .header { height: 72px; }
     .brand img { height: 36px; }
     .brand .n1 { font-size: 13px; }
-    .hero { height: auto; min-height: 72vh; padding-bottom: 32px; }
+    .hero { height: auto; min-height: 72vh; padding-bottom: calc(var(--fr) + 32px); }
     .hero .word { white-space: normal; font-size: clamp(38px, 11vw, 60px); line-height: 1.0; }
     .tab { display: none; }
     .fab { display: flex; position: fixed; right: 16px; bottom: 16px; z-index: 50; background: var(--ink); color: #FFF; font-size: 12px; font-weight: 700; letter-spacing: 0.14em; padding: 14px 20px; border-radius: 999px; box-shadow: 0 8px 24px rgba(0,0,0,.2); }
