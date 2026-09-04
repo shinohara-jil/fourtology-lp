@@ -45,12 +45,12 @@
 
   /* hero（PC：黒地に写真を額装。写真の高さは画面高さに合わせ、見出しまで初期表示に収める） */
   .hero { position: relative; background: var(--ink); color: #FFF; width: 100vw; margin-left: calc(50% - 50vw); padding: 24px var(--edge) clamp(28px, 3.4vw, 44px); }
-  .hero .frame { height: clamp(420px, calc(100vh - 240px), 620px); margin-right: 56px; overflow: hidden; }
+  .hero .frame { height: clamp(420px, calc(100vh - 240px), 620px); overflow: hidden; }
   .hero .frame img { filter: saturate(.8) contrast(1.02); }
   .hero .shade { display: none; }
   .hero .word { position: relative; font-family: Inter, sans-serif; font-weight: 800; font-size: clamp(34px, 7.6vw, 110px); letter-spacing: -0.035em; line-height: 0.95; white-space: nowrap; margin-left: -0.03em; margin-top: -0.52em; z-index: 2; text-shadow: 0 2px 24px rgba(0,0,0,.25); }
   .hero .word span { font-weight: 500; letter-spacing: -0.02em; }
-  .tab { position: absolute; right: 0; top: 200px; background: #FFF; color: var(--ink); width: 56px; height: 190px; display: flex; align-items: center; justify-content: center; writing-mode: vertical-rl; font-size: 12px; font-weight: 700; letter-spacing: 0.3em; }
+  .tab { position: absolute; right: 0; top: 200px; z-index: 3; background: #FFF; color: var(--ink); width: 56px; height: 190px; display: flex; align-items: center; justify-content: center; writing-mode: vertical-rl; font-size: 12px; font-weight: 700; letter-spacing: 0.3em; }
   .fab { display: none; }
 
   /* statement */
